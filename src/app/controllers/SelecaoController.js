@@ -1,10 +1,8 @@
-import conexao from '../database/conexao.js'
+import conexao from "../database/conexao.js";
+import SelecaoRepository from "../repositories/SelecaoRepository.js";
 class SelecaoController {
-	base(req, res) {
-		res.send("Api Rest rodando!");
-	}
-	index(req, res) {
-		const sql = "SELECT * FROM selecoes;";
+	table(req, res) {
+		const sql = "describe selecoes";
 		conexao.query(sql, (erro, resultado) => {
 			if (erro) {
 				res.status(404).json({ erro: `Dados nao encontrados: ${erro}` });
@@ -12,6 +10,14 @@ class SelecaoController {
 				res.status(200).json(resultado);
 			}
 		});
+	}
+
+	base(req, res) {
+		res.send("Api Rest rodando!");
+	}
+	async index(req, res) {
+		const row = await SelecaoRepository.findALL();
+		res.json(row);
 	}
 	show(req, res) {
 		const id = req.params.id;

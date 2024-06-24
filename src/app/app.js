@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 
 // Routers
+app.get("/table", SelecaoController.table);
 app.get("/", SelecaoController.base);
 app.get("/selecoes", SelecaoController.index);
 app.get("/selecoes/:id", SelecaoController.show);

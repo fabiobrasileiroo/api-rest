@@ -1,17 +1,17 @@
-const routes ={
-  base : "/"
-  // index
-}
-  // app.get("/", SelecaoController.base);
+const routes = {
+	base: "/",
+	// index
+};
+// app.get("/", SelecaoController.base);
 
-  // app.get("/selecoes", SelecaoController.index);
+// app.get("/selecoes", SelecaoController.index);
 
-  // app.get("/selecoes/:id", SelecaoController.show);
+// app.get("/selecoes/:id", SelecaoController.show);
 
-  // app.post("/selecoes", SelecaoController.store);
+// app.post("/selecoes", SelecaoController.store);
 
-  // app.put("/selecoes/:id", SelecaoController.update);
+// app.put("/selecoes/:id", SelecaoController.update);
 
-  // app.delete("/selecoes/:id", SelecaoController.delete);
+// app.delete("/selecoes/:id", SelecaoController.delete);
 
 export default routes;
