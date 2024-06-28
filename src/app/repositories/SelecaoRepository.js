@@ -13,7 +13,17 @@ class SelecaoRepository {
 			});
 		});
 	}
-	findById() {}
+	findById(id) {
+		const sql = "SELECT * FROM selecoes WHERE id=?";
+    return new Promise((resolve, reject) => {
+      conexao.query(sql, id, (erro, resultado) => {
+        if(erro) return reject("Não foi possível buscar a seleção");
+        const row = JSON.parse(JSON.stringify(resultado));
+        return resolve(row);
+      });
+
+    })
+  }
 	update() {}
 
 	delete() {}

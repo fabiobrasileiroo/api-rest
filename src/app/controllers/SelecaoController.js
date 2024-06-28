@@ -19,17 +19,11 @@ class SelecaoController {
 		const row = await SelecaoRepository.findALL();
 		res.json(row);
 	}
-	show(req, res) {
-		const id = req.params.id;
-		const sql = "SELECT * FROM selecoes WHERE id=?";
-		conexao.query(sql, id, (erro, resultado) => {
-			const linha = resultado[0];
-			if (erro) {
-				res.status(404).json({ erro: `Dados nao encontrados: ${erro}` });
-			} else {
-				res.status(200).json(linha);
-			}
-		});
+	async show(req, res) {
+    const id = req.params.id
+    const row = await SelecaoRepository.findById(id);
+    res.json(row);
+
 	}
 
 	store(req, res) {
