@@ -1,16 +1,12 @@
 import app from './src/app.js'
-import conexao from './infra/conexao.js'
+import dotenv from 'dotenv';
 
-const PORT = 3000
-// fazer a conexão
-// conexao.connect((erro) => {
-//   if(erro) {
-//     console.log(erro)
-//     return
-//   }
+dotenv.config(); // Carrega as variáveis de ambiente do arquivo .env
+
+const PORT = process.env.PORT || 3333
+
 app.listen(PORT, () => {
   console.log('Server on port', `http://localhost:${PORT}`)
 })
-// })
 
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import conexao from '../infra/conexao.js';
+import conexao from '../src/database/conexao.js';
 import session from 'express-session';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
@@ -31,6 +31,7 @@ function generateToken(user) {
 
 function verifyToken(req, res, next) {
   const token = req.headers['authorization'];
+  console.log(token)
   
   if (!token) {
     return res.status(401).send('Token não fornecido');
@@ -50,10 +51,14 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const { login: userLogin, senha } = req.body;
+  const { userLogin, senha } = req.body;
+  console.log("🚀 ~ app.post ~ userLogin:", userLogin)
+  console.log("🚀 ~ app.post ~ login:", login)
+
+  console.log("🚀 ~ app.post ~ senha:", userLogin , login,senha === password)
 
   if (userLogin === login && senha === password) {
-    const token = generateToken({ login: userLogin });
+    const token = generateToken({ userLogin });
     res.status(200).json({ token });
   } else {
     res.status(404).send('Login ou senha inválidos!');
