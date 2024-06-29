@@ -134,4 +134,84 @@ app.put('/selecoes/:id', verifyToken, (req, res) => {
 //   console.log(`Server on port http://localhost:${PORT}`);
 // });
 
-export default app;
+// app.post("/login", (req, res) => {
+// 	const { login: userLogin, senha } = req.body;
+
+// 	if (userLogin === login && senha === password) {
+// 		const token = generateToken({ login: userLogin });
+// 		res.status(200).json({ token });
+// 	} else {
+// 		res.status(404).send("Login ou senha inválidos!");
+// 	}
+// });
+
+// app.get("/selecoes", verifyToken, (req, res) => {
+// 	const sql = "SELECT * FROM selecoes;";
+// 	conexao.query(sql, (erro, resultado) => {
+// 		if (erro) {
+// 			console.log(erro);
+// 			res.status(404).json({ erro: "Dados não encontrados!" });
+// 		} else {
+// 			res.status(200).json(resultado);
+// 		}
+// 	});
+// });
+
+// app.get("/selecoes/:id", verifyToken, (req, res) => {
+// 	const id = req.params.id;
+// 	const sql = `SELECT * FROM selecoes WHERE id=?`;
+// 	conexao.query(sql, [id], (erro, resultado) => {
+// 		if (erro) {
+// 			res.status(404).json({ erro: "Dados não encontrados!" });
+// 		} else {
+// 			res.status(200).json(resultado[0]);
+// 		}
+// 	});
+// });
+
+// app.post("/selecoes", verifyToken, (req, res) => {
+// 	const { selecao, grupo } = req.body;
+// 	const sql = `INSERT INTO selecoes (selecao, grupo) VALUES (?, ?)`;
+// 	conexao.query(sql, [selecao, grupo], (erro, resultado) => {
+// 		if (erro) {
+// 			console.log(erro);
+// 			res.status(500).json({ erro: "Erro ao criar seleção!" });
+// 		} else {
+// 			res.status(201).send("Seleção criada com sucesso!");
+// 		}
+// 	});
+// });
+
+// app.delete("/selecoes/:id", verifyToken, (req, res) => {
+// 	const id = req.params.id;
+// 	const sql = `DELETE FROM selecoes WHERE id=?`;
+// 	conexao.query(sql, [id], (erro, resultado) => {
+// 		if (erro) {
+// 			console.log(erro);
+// 			res.status(500).json({ erro: "Erro ao excluir seleção!" });
+// 		} else {
+// 			res.send(`Seleção com id ${id} excluída com sucesso!`);
+// 		}
+// 	});
+// });
+
+// app.put("/selecoes/:id", verifyToken, (req, res) => {
+// 	const id = req.params.id;
+// 	const { selecao, grupo } = req.body;
+// 	const sql = `UPDATE selecoes SET selecao=?, grupo=? WHERE id=?`;
+// 	conexao.query(sql, [selecao, grupo, id], (erro, resultado) => {
+// 		if (erro) {
+// 			console.log(erro);
+// 			res.status(500).json({ erro: "Erro ao atualizar seleção!" });
+// 		} else {
+// 			res.send("Seleção atualizada com sucesso!");
+// 		}
+// 	});
+// });
+
+// // const PORT = process.env.PORT || 3000;
+// // app.listen(PORT, () => {
+// //   console.log(`Server on port http://localhost:${PORT}`);
+// // });
+
+// export default app;
